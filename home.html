@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Andrew Wentzel's Website</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script src="main.js"></script>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="flex-container vcenter top">
+		<div class="flex-container vcenter menu-bar">
+			<div> <a href="#aboutMe" class="nav-button vcenter">About Me</a></div>
+			<div> <a href="#timeLine" class="nav-button vcenter">Timeline</a></div>
+			<div> <a href="#projects" class="nav-button vcenter">Projects</a></div>
+			<div> <a href="#experience" class="nav-button vcenter">Education and Experience</a></div>
+			<div> <a href="#skills" class="nav-button vcenter">Skills</a></div>
+		</div>
+	</div>
+
+	<div class="jumbotron text-center  shadow" style="margin-bottom:0">
+		<h1>Andrew Wentzel</h1>
+		<p>In Website Form</p> 
+	</div>
+
+
+	<div class="container-fluid" id="aboutMe">
+		<div class="row vcenter">
+			<div class="col-sm-4">
+				<image id="my-img" src="me.png" class="rounded img-thumbnail float-right">
+			</div>
+			<div class="col-sm-8">
+				<h6>Hello, I'm Andrew Wentzel (see above).  As of writting this, I'm a MS student in Computer Science and UIC.
+				This website is my re-attempt at making a personal website and portfollio now that I am finally capable of making my own website.
+				My academic interests include AI, machine learning, data-science, and engineering design of all kinds.  I have a bachelors in Mechanical Engineering
+				and have an interest in robotics and mechatronics, as seen in the fact that I've done a bunch of those below.
+				Non-academically my hobbies currently lie mainly in bicycling and story-heavy indie video games, although I generally just cycle through different 
+				forms of exercise and media consumption as time goes on.  I am now becomming interested in bicycle and computer repair, by proxy of using and breaking them often.</h6>
+				<h6>If you're interested in more details, check out the timeline below and hover over the nodes representing salient parts of my life.  If you read them we'll basically
+				be best friends at that point.</h6>
+			</div>
+		</div>
+	</div>
+
+	<hr/>
+	<div class="container-fluid" id="timeLine">
+		<div class="row vcenter" style="margin-bottom:3%">
+			<h2>Mini Life-Timeline</h2>
+		</div>
+		<div class="row vcenter">
+			<svg id="timeline" width="100%">
+				<line x1="10%" y1="20%" x2="90%" y2="20%" style="stroke:blue;stroke-width:20"/>
+				<circle class="timeline-circle" cx="15%" cy="20%" 
+					data-toggle="popover" data-placement="bottom" data-trigger="hover" 
+					title="2009" data-content="Andrew moves out of his hometown of Arlington Heights to go highschool at the Illinois Math and Science Academy.
+					It's at that point that be learns that drilling holes into robots is easier than people, and figure he should go into engineering rather than medicine." />
+				<circle class="timeline-circle" cx="25%" cy="20%" 
+					data-toggle="popover" data-placement="bottom" data-trigger="hover" 
+					title="2012" data-content="Andrew Heads off to New York to attend The Cooper Union as an Undergraduate Engineering Student.  While there he works 
+					as a computer-center operator, does a summer abroad in Spain, and tries to learn to dance.  He explores the city a lot." />
+				<circle class="timeline-circle" cx="50%" cy="20%" 
+					data-toggle="popover" data-placement="bottom" data-trigger="hover" 
+					title="2015" data-content="The summer before his senior year at the Cooper Union, Andrew participates in the new initiatives to get student research started at 
+					The Cooper Union.  He spends a summer some of the school year working in a fluid physics lab trying to build a fluid visualization system." />
+				<circle class="timeline-circle" cx="60%" cy="20%" 
+					data-toggle="popover" data-placement="bottom" data-trigger="hover" 
+					title="2016" data-content="Faced with graduate, Andrew questions what to do with his life.  He ends up returning to Chicago, and working for the Facilities Space
+					Information team at Northwestern University while applying to graduate schools. He applies for programs with a focus on robotics, with some different majors.
+					He learns python and C++ in the meantime, since those seem to be universally recommended for that field." />
+				<circle class="timeline-circle" cx="70%" cy="20%" 
+					data-toggle="popover" data-placement="bottom" data-trigger="hover" 
+					title="2017" data-content="Andrew starts studying at Northwestern University.  He programs some robots and realizes that, unlike in New York, he has an apartment that lets him store a bike, and bike everywhere now.
+					By the middle of march his research is discontinued.  He lectures freshman about dynamics. He applies to some Computer-Science programs to see if any let him in." />
+				<circle class="timeline-circle" cx="80%" cy="20%" 
+					data-toggle="popover" data-placement="bottom" data-trigger="hover" 
+					title="2018" data-content="Andrew somehow convinces UIC to let him into their MSCS program.  He makes a website about himself and puts too much text in popovers on his timeline.  The should really just be like,
+					one-liners about his professional experience." />
+			</svg>
+		</div>
+	</div>
+	<hr/>
+
+	<div class="container-fluid" id="projects">
+		<div class="row vcenter">
+			<h2>Projects<h2>
+		</div>
+		<div class="row"
+			<div class="card-columns">
+				<div class="card bg-info project">
+					<div class="card-body">
+						<h4 class="card-title text-center">Line Following Robot</h4>
+						<image src="robot_snapshot.png" class ="card-img-top"/>
+						<p class="card-text">Built and programmed a red-line-following robot using android to get information for 
+						the phone camera and a PIC microprocessor programmed in C.</p>
+						<a href="https://github.com/tehwentzel/ME-433/tree/master/HW18" target="_blank" class="btn btn-primary">
+							See Github</a>
+						<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#videoModal"
+							data-theVideo="https://www.youtube.com/embed/pK0ZomTL_G0">Play Demo Video</a>
+					</div>
+				</div>
+
+				<div class="card bg-info project">
+					<div class="card-body">
+						<h4 class="card-title text-center">Baxter Robot-Bartender</h4>
+						<image src="baxter_snapshot.png" class ="card-img-top"/>
+						<p class="card-text">Project using ROS in python to program Baxter (a research robot) to pick up and hand you a cup.
+							Right arm in picture is property of Kaixan (Kevin) Zhang.</p>
+						<a href="https://github.com/tehwentzel/ME_495_Final" target="_blank" class="btn btn-primary">See Github</a>
+					</div>
+				</div>
+				<div class="card bg-info project">
+					<div class="card-body">
+						<h4 class="card-title text-center">Autocad Scripts for Drafting</h4>
+						<image src="lisp_pic.png" class ="card-img-top"/>
+						<p class="card-text">I worked as an architectural drafter for a while and learned to write Lisp scripts 
+							to automate a lot of my job.  I'm rather proud of them</p>
+						<a href="https://github.com/tehwentzel/Drafting-Automation" target="_blank" class="btn btn-primary">See Github</a>
+					</div>
+				</div>
+				<div class="card bg-info project">
+					<div class="card-body">
+						<h4 class="card-title text-center">Orthotic Device Dynamic Simulation</h4>
+						<image src="me314.png" class ="card-img-top"/>
+						<p class="card-text">Used lagrangian mechanics to simulate the movement of a model 6-dof device designed to
+						help rehabilite stroke patients.  Simulation was done in mathematica.  The math is cooler than the video.</p>
+						<a href="https://github.com/tehwentzel/ME_314_Final" target="_blank" class="btn btn-primary">See Github</a>
+						<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#videoModal"
+							data-theVideo="https://www.youtube.com/embed/3IMKjZsYEIA">Play Video Anyway</a>
+					</div>
+				</div>
+				<div class="card bg-info project">
+					<div class="card-body">
+						<h4 class="card-title text-center">Medical Expert System</h4>
+						<image src="jess.png" class ="card-img-top"/>
+						<p class="card-text">Prototype decision support system written in Java with the Jess rule engine.  Takes parameters of a person and 
+						uses AI techniques to provide clinical recommendations based on ACA guidelines.</p>
+						<a href="https://github.com/tehwentzel/Simple-Expert-System/tree/master" target="_blank" class="btn btn-primary">See Github</a>
+					</div>
+				</div>
+				<div class="card bg-secondary project">
+					<div class="card-body">
+						<h4 class="card-title text-center">Autonomous Pingpong-Ball Shooting Robot</h4>
+						<image src="ufnik.png" class ="card-img-top"/>
+						<p class="card-text">Autonomous Robot built as a 3-person team my senior year of Undergrad.  The robot was designed to 
+						automatically seek out infared LED's in the base of an opponent robot, and fire a pingpong ball at it, while avoiding objects.
+						Robot was controlled via arduino Mega and designed in Inventor.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<hr/>
+	
+	<div class="container-fluid" id="experience">
+		<div class="row vcenter">
+			<h2>Education and Experience</h2>
+		</div>
+		
+		<div class="accordion" id="accordionExample">
+		
+			<div class="card">
+				<div class="container-fluid card-header">
+					<div class="row" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+						<div class="col">
+							<h6>Northwestern University</h6>
+							<h5>Graduate Student, Mechanical Engineering - Robotics and Controls</h5>
+						</div>
+						<div class="col date-annotation">
+							<h5>September 2017-June 2018</h5>
+						</div>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
+						<p>3.73 GPA</p>
+						<p>TA for Engineering-Analysis 3 (System Dynamics)</p>
+						<p>Courses:</p>
+						<ul>
+							<li>Distributed Optimization</li>
+							<li>Embedded Systems in Robotics</li>
+							<li>Intro to Artificial Intelligence</li>
+							<li>Quantitative Biology</li>
+							<li>Advanced Mechatronics</li>
+							<li>Deep Learning</li>
+							<li>Applied Linear Algebra</li>
+							<li>Machine Dynamics</li>
+							<li>Industrial Energy Management</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		  
+		  <div class="card">
+			<div class="container-fluid card-header">
+					<div class="row" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+						<div class="col">
+							<h6>Northwestern University</h6>
+							<h5>Architectural Technician</h5>
+						</div>
+						<div class="col date-annotation">
+							<h5>November 2016-September 2017, Summer 2018</h5>
+						</div>
+					</div>
+				</div>
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+				<div class="card-body">
+					Between College Programs I worked full time for the Space-Information-Management division of Northwestern's Facilities Management Department.
+					Most work involved editing university floorplans in autocad, visiting sites to verify the information in the floorplans and database,
+					working with other interns, and writing autocad lisp scripts to automate my job.
+				</div>
+			</div>
+		  </div>
+		  
+		  <div class="card">
+			<div class="container-fluid card-header">
+					<div class="row" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseOne">
+						<div class="col">
+							<h6>The Cooper Union</h6>
+							<h5>Undergraduate Student, Mechanical Engineering</h5>
+						</div>
+						<div class="col date-annotation">
+							<h5>2012-2016</h5>
+						</div>
+					</div>
+				</div>
+			<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+				<div class="card-body">
+					<p>Graduated in 2016 magna cum laude</p>
+					<p>Full Tuition Scholarship</p>
+					<p>Worked as a computer-center technician and supervisor from June 2013 - May 2016</p>
+					<p>Studied abroad in Spain the Summer of 2014 doing Material-Science Research at Universidad Pontifical Comillas</p>
+					<p>Was involved in the Cooper Research Scholars program my senior year, doing work on fluid visualization for novel biologically-inspired flows</p>
+				</div>
+			</div>
+		  </div>
+		  
+		  <div class="card">
+			<div class="container-fluid card-header">
+					<div class="row" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
+						<div class="col">
+							<h6>Illinois Math and Science Academy</h6>
+							<h5>Highschool Student</h5>
+						</div>
+						<div class="col date-annotation">
+							<h5>2009-2012</h5>
+						</div>
+					</div>
+				</div>
+			<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+				<div class="card-body">
+					<p>Member of the FIRST robotics team for 3 years</p>
+					<p>Member of science-olympiad team for 2 years</p>
+					<p>Did research at the University of Chicago in biophysics on cell-membrane phase behavior in the summer of 2012</p>
+					<p>Participated in IMSA's SIR mentorship program for 2 years doing an independent study on the Philosophy of Artificial Intelligence</p>
+				</div>
+			</div>
+		  </div>
+		  
+		</div>
+	</div>
+	
+	<hr/>
+	
+	<div class="container-fluid" id="skills">
+		<div class="row vcenter">
+			<h6>Skills</h6>
+		</div>
+		<div class="row">
+			<div class="col">
+				<ul class="list-group">
+					<li class="list-group-item list-group-item-primary">Programming Languages (Object-Oriented)</li>
+					<li class="list-group-item list-group-item-info">Java</li>
+					<li class="list-group-item list-group-item-info">Python</li>
+					<li class="list-group-item list-group-item-info">C++</li>
+					<li class="list-group-item list-group-item-info">Javascript</li>
+				</ul>
+			</div>
+			<div class="col">
+				<ul class="list-group">
+					<li class="list-group-item list-group-item-primary">Programming Languages (Other)</li>
+					<li class="list-group-item list-group-item-info">C</li>
+					<li class="list-group-item list-group-item-info">Matlab</li>
+					<li class="list-group-item list-group-item-info">Lisp</li>
+									<li class="list-group-item list-group-item-info">Mathematica</li>
+				</ul>
+			</div>
+			<div class="col">
+				<ul class="list-group">
+					<li class="list-group-item list-group-item-primary">Misc</li>
+					<li class="list-group-item list-group-item-info">Git</li>
+					<li class="list-group-item list-group-item-info">HTML + CSS</li>
+					<li class="list-group-item list-group-item-info">Embedded Circuits</li>
+					<li class="list-group-item list-group-item-info">ROS</li>
+					<li class="list-group-item list-group-item-info">Autocad</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="jumbotron text-center" style="margin-bottom:0;margin-top:2%;">
+		<p>Last Updated 9/10/2018</p>
+		<p>Contact me at tehwentzel@gmail.com</p>
+	</div>
+
+	<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<div>
+			  <iframe width="100%" height="500" src=""></iframe>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+</body>
+</html>

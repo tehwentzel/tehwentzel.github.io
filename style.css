@@ -1,0 +1,131 @@
+/* Spring coottons color palette
+* #e7e1ef
+* #c994c7
+* #dd1c77
+*/
+
+.navbar{
+	background-color: rgba(117,107,177);
+	text-color: black;
+}
+body {
+	background-color: rgba(231,225,230,.6);
+}
+
+.jumbotron{
+	background-color: rgba(201,148,199,.3);
+}
+.container-fluid{
+	padding: 1%;
+	padding-bottom: 0;
+}
+.project{
+	max-height: 25%;
+	max-width: 20%;
+	margin: 1%;
+}
+.vcenter, .list-group-item{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.btn{
+	padding: .5%;
+}
+#my-img{
+	max-width: 50%;
+	max-height: 50%;
+}
+#stage {
+	width: 100%;
+	heigth: 150px;
+}
+circle.timeline-circle{
+	fill: rgba(117,107,177);
+	stroke: rgba(0,0,250,.8);
+	stroke-width: .4%;
+	r: 2%;
+}
+h6{
+	font-size: 1.3em;
+}
+.education-header{
+	font-family: sans-serif;
+	font-size: 1.7em;
+	color: black;
+	font-weight: bold;
+	background-color: rgba(201,148,199,.3);
+}
+.collapse{
+	font-size: 1.1em;
+	color: black;
+	background-color: rgba(231,225,230,.6);
+}
+.card-header{
+	background-color: rgba(231,225,230,.8);
+}
+.date-annotation{
+	text-align: right;
+	color: gray;
+	font-style: oblique;
+}
+ul {
+  columns: 3;
+  -webkit-columns: 3;
+  -moz-columns: 3;
+}
+.list-group-item{
+	font-size: 1.3em;
+	font-weight: bold;
+	justify-content: center;
+}
+.card-body p,ul{
+	font-size: .9em;
+	color: rgba(10,10,10,.9);
+	margin: .1%;
+}
+.accordian{
+	max-width: 70%;
+}
+.top {
+	width: 100%; 
+	height: 5%;
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	align-items: center;
+	flex-direction: row;
+	background-color: rgba(117,107,177,1);
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2);
+}
+.menu-bar {
+	flex-direction: row;
+	height: 5%;
+	justify-content: left;
+	align-items: center;
+	width: 80%;
+}
+.menu-bar div {
+	margin-left: 2%;
+	margin-right: 2%;
+	text-color: black;
+}
+
+.nav-button{
+	font-size: 1.5em;
+	font-family: Sans-serif;
+	color: rgba(20,20,150,.99);
+	font-weight: bold; 
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+     -moz-transition: -moz-transform 0.3s ease-out;
+       -o-transition: -o-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+}
+
+.modal.in .modal-dialog {
+
+}
