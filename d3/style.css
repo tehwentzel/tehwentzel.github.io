@@ -1,0 +1,71 @@
+body {
+  font: 12px sans-serif;
+}
+
+path {
+  stroke-width: 0.25px;
+  stroke: white;
+  fill: #cfd6da;
+  cursor: pointer;
+}
+div.tooltip {
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+.flex-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap:wrap;
+}
+#sideGraph{
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin: 0 -5px;
+}
+#stemplot{
+	max-width: 100%;
+	margin: 0 auto;
+	overflow-x: auto;
+}
+table{ 
+	width: 80%%;
+	empty-cells: hide;
+}
+td{
+	font-weight: bold;
+	font-size: 1em;
+	color: darkgray;
+	margin-left: 20px;
+	padding-left: 20px;
+}
+th{
+	font-weight: bold;
+	color: darkred;
+	display: table-row;
+	font-size: 1em;
+	padding: 3px;
+	border-right: solid black 10px;
+}
+div, h4, h2, table{
+	margin: 0 auto;
+	padding: 0 auto;
+}
+td, th {
+	text-align:left;
+	padding: 1px;
+	word-wrap: break-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
