@@ -49,7 +49,7 @@ td{
 	margin-left: 20px;
 	padding-left: 20px;
 }
-th{
+tr{
 	font-weight: bold;
 	color: darkred;
 	display: table-row;
@@ -61,7 +61,7 @@ div, h4, h2, table{
 	margin: 0 auto;
 	padding: 0 auto;
 }
-td, th {
+td, tr {
 	text-align:left;
 	padding: 1px;
 	word-wrap: break-all;

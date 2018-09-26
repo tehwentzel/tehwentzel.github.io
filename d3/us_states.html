@@ -8,6 +8,19 @@
 <body>
 	<div class="flex-container" id="map">
 	</div>
+	<div id="filters" style="margin-top:2%;margin-bottom:2%;margin-left:28%;">
+		<div id="dates">
+			<h4>Filter By Date</h4>
+			<form>
+				Start Date:
+				<input type="date" name="minDate" id="minDate" min="2012-12-01" max="2013-13-31" value="2012-12-01" required>
+				End Date:
+				<input type="date" name="maxDate" id="maxDate" min="2012-12-01" max="2013-13-31" value="2013-12-31" required>
+				<button type="button" id="submitDate">Filter Dates</button>
+			</form>
+			
+		</div>
+	</div>
 	<div class="flex-container" id="sideGraph">
 		<div id="graphTitle">
 			<h2></h2>
@@ -19,31 +32,32 @@
 		<hr/>
 		<div id="stemplot">
 			<table id="thetable">
-				<thead>
+				<tread>
 					<h4 id="tablehead" style="text-align:center"><h4>
 				</thead>
-				<th id="row1">
-				</th>
-				<th id="row2">
-				</th>
-				<th id="row3">
-				</th>
-				<th id="row4">
-				</th>
-				<th id="row5">
-				</th>
-				<th id="row6">
-				</th>
-				<th id="row7">
-				</th>
-				<th id="row8">
-				</th>
-				<th id="row9">
-				</th>
+				<!--tr id="row1">
+				</tr>
+				<tr id="row2">
+				</tr>
+				<tr id="row3">
+				</tr>
+				<tr id="row4">
+				</tr>
+				<tr id="row5">
+				</tr>
+				<tr id="row6">
+				</tr>
+				<tr id="row7">
+				</tr>
+				<tr id="row8">
+				</tr>
+				<tr id="row9">
+				</tr-->
 			</table>
 		<div>
 	</div>
 	<script src="d3.min.js"></script>
+	<script src="autocomplete.js"></script>
 	<script src="detail_plots.js"></script>
 	<script src="main.js"></script>
 </body>
