@@ -39,15 +39,16 @@ div.tooltip {
 	overflow-x: auto;
 }
 table{ 
-	width: 80%%;
+	width: 80%;
 	empty-cells: hide;
+	overflow-x:auto;
 }
 td{
 	font-weight: bold;
 	font-size: 1em;
 	color: darkgray;
-	margin-left: 20px;
-	padding-left: 20px;
+	margin-left: 2px;
+	padding-left: 2px;
 }
 tr{
 	font-weight: bold;
@@ -64,8 +65,6 @@ div, h4, h2, table{
 td, tr {
 	text-align:left;
 	padding: 1px;
-	word-wrap: break-all;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	word-wrap: break-word;
 	white-space: nowrap;
 }

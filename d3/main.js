@@ -157,6 +157,16 @@ function drawCircles(gunData, filter = null, cityName = "All Cities", isFirst = 
 		.domain([0, d3.max( dataMap.values(), function(d) {return d.count;})])
 		.range([0, 60]);
 
+	//This is actually faster than updating and more consistent
+	d3.selectAll(".nodes").remove();
+	d3.selectAll("linearGradient").remove();
+	
+	var nodes = svg.selectAll(".nodes")
+		.data(dataMap.values(), function(d){return d.city;})
+		.enter()
+		.append('g')
+		.attr('class','nodes');
+	
 	var gradient = defs.selectAll("linearGradient")
 		.data(dataMap.values(),function(d){return d.city;})
 		.enter()
@@ -187,34 +197,7 @@ function drawCircles(gunData, filter = null, cityName = "All Cities", isFirst = 
 		.attr("offset", "1")
 		.attr("stop-color", "deepskyblue")
 		.attr("stop-opacity", 1);
-	//console.log(JSON.stringify(dataMap));
 	
-	var nodes = svg.selectAll(".nodes")
-		.data(dataMap.values(), function(d){return d.city;})
-		.enter()
-		.append('g')
-		.attr('class','nodes');
-	
-	d3.selectAll(".nodes").data(dataMap.values(),function(d){return d.city;}).exit().remove();
-	
-	if(isFirst == false){
-		d3.selectAll(".nodes").selectAll('circle')
-			.data(dataMap.values(), function(d){return d.city;})
-			.attr("class", "update")
-			.attr("r", function(d) {
-				if(d.city == "Chicago"){
-					console.log(radScale(d.count));
-				}
-				return radScale(d.count); 
-			})
-			.selectAll("text")
-			.attr("font-size", function(d) { return (radScale(d.count)/3) + "px"; })
-			.attr("x", function(d) { return d.lon; })
-			.attr("y", function(d) { return d.lat + (radScale(d.count)/7); })
-			.text( function(d) { return d.city; } );
-	}
-	
-
 	nodes.append("circle")
 		.attr("class","enter")
 		.attr("cx", function(d) { return d.lon; })
