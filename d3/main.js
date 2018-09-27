@@ -61,9 +61,9 @@ d3.csv("https://gist.githubusercontent.com/tehwentzel/a87477756c1ba156230587d373
 	drawCircles(gunData, null, "All Cities", true);//flag it as the first instance to skip the update portion
 	
 	d3.select("#submitDate").on("click",function(d){
+		features.attr("transform", d3.zoomIdentity);
 		var minDate = new Date(document.getElementById("minDate").value);
 		var maxDate = new Date(document.getElementById("maxDate").value);
-
 		var filter = function(d) { return (d.date >= minDate && d.date <= maxDate); };
 		drawCircles(gunData, filter, "All Cities");
 	});
@@ -84,13 +84,15 @@ function drawMap(gunData){
 		.attr('cy', function(d) {return height - d.offset;})
 		.attr('fill', function(d) {return d.color;})
 		.attr('r', 10)
-		.attr('fill-opacity', .8);
+		.attr('fill-opacity', .8)
+		.attr("style","cursor:default;");
 	legend.append('text')
 		.attr('text-anchor', "start")
 		.attr('x', width - 65)
 		.attr('y', function(d) {return height - d.offset + 5;})
 		.attr("font-size", "1.2em")
 		.attr('font-family', 'cursive')
+		.attr("style","cursor:default;")
 		.text( function(d) {return d.title;});
 
 	features.selectAll("path")

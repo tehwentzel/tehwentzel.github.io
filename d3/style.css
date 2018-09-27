@@ -6,7 +6,12 @@ path {
   stroke-width: 0.25px;
   stroke: white;
   fill: #cfd6da;
-  cursor: pointer;
+}
+circle, rect {
+	cursor: pointer;
+}
+svg text{
+	cursor: pointer;
 }
 div.tooltip {
     position: absolute;			
@@ -68,3 +73,4 @@ td, tr {
 	word-wrap: break-word;
 	white-space: nowrap;
 }
+
