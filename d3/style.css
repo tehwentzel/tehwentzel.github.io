@@ -44,7 +44,7 @@ div.tooltip {
 	overflow-x: auto;
 }
 table{ 
-	width: 80%;
+	max-width: 80%;
 	empty-cells: hide;
 	overflow-x:auto;
 }
@@ -52,16 +52,17 @@ td{
 	font-weight: bold;
 	font-size: 1em;
 	color: darkgray;
-	margin-left: 2px;
+	margin-left: 0 auto;
 	padding-left: 2px;
+	display: table-cell;
 }
 tr{
 	font-weight: bold;
 	color: darkred;
 	display: table-row;
 	font-size: 1em;
-	padding: 3px;
-	border-right: solid black 10px;
+	margin-right: 1px;
+	padding-right: 1px;
 }
 div, h4, h2, table{
 	margin: 0 auto;
@@ -70,7 +71,6 @@ div, h4, h2, table{
 td, tr {
 	text-align:left;
 	padding: 1px;
-	word-wrap: break-word;
 	white-space: nowrap;
 }
 
