@@ -1,0 +1,28 @@
+body { margin: 0; }
+
+svg {
+    font-family: helvetica, sans-serif;
+}
+#scene{
+	width: 95%;
+	height: 95%;
+}
+path, line {
+    stroke: #777;
+}
+
+#display{
+	width:100%;
+	align-items: center;
+}
+#spotlight{
+	margin: auto;
+}
+.vcenter{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 0 auto;
+}

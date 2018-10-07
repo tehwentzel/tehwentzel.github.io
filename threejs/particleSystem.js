@@ -1,0 +1,185 @@
+
+/* Get or create the application global variable */
+var App = App || {};
+
+class ParticleSystem {
+	constructor(file){
+		// scene graph group for the particle system
+		this.sceneObject = new THREE.Group();
+		this.filterWidth = .2;
+		// bounds of the data
+		this.bounds = {};
+		this.loadData();
+		this.setupSVG();
+		this.drawBox();
+		this.drawPoints();
+		//console.log(this.data);
+		this.sceneObject.add( this.points );
+		this.sceneObject.add( this.filterPlane );
+	}
+	
+	loadData(){
+		var bounds = {};
+		particleData.forEach(function(d) {
+                // get the min bounds
+                bounds.minX = Math.min(bounds.minX || Infinity, d.X);
+                bounds.minY = Math.min(bounds.minY || Infinity, d.Y);
+                bounds.minZ = Math.min(bounds.minZ || Infinity, d.Z);
+
+                // get the max bounds
+                bounds.maxX = Math.max(bounds.maxX || -Infinity, d.X);
+                bounds.maxY = Math.max(bounds.maxY || -Infinity, d.Y);
+                bounds.maxZ = Math.max(bounds.maxY || -Infinity, d.Z);
+
+				bounds.maxC = Math.max(bounds.maxC || -Infinity, d.concentration);
+            });
+		this.data = particleData;
+		//console.log(JSON.stringify(this.data));
+		this.bounds = bounds;
+		this.yRange = (bounds.maxY - bounds.minY)/2;
+    };
+
+    drawContainment(){
+
+        // get the radius and height based on the data bounds
+        var radius = (this.bounds.maxX - this.bounds.minX)/2.0 + 1;
+        var height = (this.bounds.maxY - this.bounds.minY) + 1;
+	
+        // create a cylinder to contain the particle system
+        var geometry = new THREE.CylinderGeometry( radius, radius, height, 32 );
+        var material = new THREE.MeshBasicMaterial( {color: 0xffff00, wireframe: true} );
+        var cylinder = new THREE.Mesh( geometry, material );
+		return cylinder;
+        // add the containment to the scene
+        //sceneObject.add(cylinder);
+    };
+	
+	drawBox(){
+		var radius = (this.bounds.maxX - this.bounds.minX)/2.0 + 1;
+		var geometry = new THREE.BoxGeometry(2*radius - 1, this.filterWidth, 2*radius - 1);
+		var material = new THREE.MeshBasicMaterial({
+			color: 0xffffff,
+			opacity: .2,
+			transparent: true});
+		var plane = new THREE.Mesh(geometry, material);
+		plane.name = "filterPlane";
+		this.filterPlane = plane;
+		this.filterBox = new THREE.Box3()
+		this.filterBox.setFromObject(this.filterPlane);
+		//sceneObject.add(plane);
+	}
+
+    // creates the particle system
+    drawPoints(){
+
+        // create a cylinder to contain the particle system
+        var pointGeometry = new THREE.Geometry();
+		var pointMaterial = new THREE.PointsMaterial({size: .02,
+			vertexColors: THREE.VertexColors});
+		for(var i = 0; i < this.data.length; i++){
+			var flowPoint  = new THREE.Vector3(this.data[i].X, this.data[i].Y- (this.bounds.maxY - this.bounds.minY)/2 , this.data[i].Z);
+			pointGeometry.vertices.push( flowPoint );
+		}
+		pointGeometry.colorsNeedUpdate = true;
+		var pointCloud = new THREE.Points( pointGeometry, pointMaterial );
+		pointCloud.name = "pointCloud";
+		this.points = pointCloud;
+		var colorPoints = this.upDateColor();
+		this.drawThings(colorPoints);
+		//sceneObject.add(pointCloud);
+        // use self.data to create the particle system
+
+    };
+	
+	upDateColor(){
+		var containedPoints = [];
+		for(var i = 0; i < this.points.geometry.vertices.length; i++){
+			let flowPoint = this.points.geometry.vertices[i];
+			if(this.filterBox.containsPoint(flowPoint)){
+				var color = new THREE.Color( 
+					"hsl(360, 100%, "+ 
+					Math.round( 100*Math.pow((this.data[i].concentration/this.bounds.maxC),.4)) +
+					"%)" );
+					containedPoints.push({ x: flowPoint.x, 
+						y: flowPoint.z, 
+						color: "#" + color.getHexString(),
+						hsl: color.getHSL() });
+			} else {
+				var color = new THREE.Color( 
+					"hsl(120, 0%, "+ 
+					Math.round( 100*Math.pow((this.data[i].concentration/this.bounds.maxC),.7)) +
+					"%)" );
+			}
+			this.points.geometry.colors[i] = color;
+			//console.log(flowPoint);
+		}
+		this.points.geometry.colorsNeedUpdate = true;
+		//console.log(containedPoints);
+		return containedPoints;
+	}
+	
+	setupSVG(){
+		this.svgWidth = .86*d3.select('.particleDiv').node().clientWidth;
+		this.svgHeight = this.svgWidth;
+		
+		this.xScale = this.svgWidth/(this.bounds.maxX + 7);
+		this.yScale = this.svgHeight/(this.bounds.maxX + 7);
+		this.svg = d3.select("#lense").append("svg")
+			.attr("width", this.svgWidth)
+			.attr("height", this.svgHeight)
+			.attr("style", "background:rgba(242,242,255,.5)");
+	}
+	
+	drawThings(points){
+			
+		//this.svg.selectAll(".nodes").remove();
+		
+		var nodes = this.svg.selectAll("circle")
+			.data(points, function(d) {return d.x.toString() + d.y.toString();})
+		nodes.exit().remove();
+		var xScale = this.xScale;
+		var yScale = this.yScale;
+		var xOffset = this.svgWidth/2;
+		var yOffset = this.svgHeight/2;
+		
+		nodes.enter().append("circle").merge(nodes)
+			.attr("cx", function(d){return xScale*d.x + xOffset})
+			.attr("cy", function (d) {return yScale*d.y + yOffset})
+			.attr("r", 1.4)
+			.attr("fill", function(d){ return d.color })
+			.attr("fill-opacity", function(d) { 
+			return d.hsl.l
+			});
+		nodes.exit().remove();
+	}
+
+	getSceneObject(){
+		//console.log(this.sceneObject);
+		return this.sceneObject;
+	}
+	
+	getData(){
+		return this.data;
+	}
+	
+	getPlane(){
+		return this.filterPlane;
+	}
+	
+	slidePlane(x){
+		if( (x > 0 && this.filterBox.max.y < this.yRange) || (x < 0 && this.filterBox.min.y > -this.yRange)){
+			this.filterPlane.geometry.translate(0,x,0);
+			this.filterPlane.updateMatrixWorld();
+			this.filterBox.setFromObject(this.filterPlane)
+				.expandByVector( new THREE.Vector3(0, .2, 0) );
+			var colors = this.upDateColor();
+			this.drawThings(colors);
+		}else{ 
+			//console.log(this.filterBox.min.y);
+			console.log(this.filterBox.max.y); 
+		}
+		//console.log(this.filterBox);
+	}
+
+
+};
