@@ -7,6 +7,7 @@ class ParticleSystem {
 		// scene graph group for the particle system
 		this.sceneObject = new THREE.Group();
 		this.filterWidth = .2;
+		this.bottomPlaneIdx = 0;
 		// bounds of the data
 		this.bounds = {};
 		this.loadData();
@@ -34,7 +35,6 @@ class ParticleSystem {
 				bounds.maxC = Math.max(bounds.maxC || -Infinity, d.concentration);
             });
 		this.data = particleData;
-		//console.log(JSON.stringify(this.data));
 		this.bounds = bounds;
 		this.yRange = (bounds.maxY - bounds.minY)/2;
     };
@@ -74,7 +74,7 @@ class ParticleSystem {
 
         // create a cylinder to contain the particle system
         var pointGeometry = new THREE.Geometry();
-		var pointMaterial = new THREE.PointsMaterial({size: .02,
+		var pointMaterial = new THREE.PointsMaterial({size: .035,
 			vertexColors: THREE.VertexColors});
 		for(var i = 0; i < this.data.length; i++){
 			var flowPoint  = new THREE.Vector3(this.data[i].X, this.data[i].Y- (this.bounds.maxY - this.bounds.minY)/2 , this.data[i].Z);
@@ -91,14 +91,23 @@ class ParticleSystem {
 
     };
 	
-	upDateColor(){
+	upDateColor(up = null, miny = -Infinity, maxy = Infinity){
 		var containedPoints = [];
+		var isFirst = true;
+		var start = (up)? this.bottomPlaneIdx : 0;
 		for(var i = 0; i < this.points.geometry.vertices.length; i++){
 			let flowPoint = this.points.geometry.vertices[i];
+			if((up && flowPoint.y > maxy) || (!up && flowPoint.y > maxy + this.filterWidth)){
+				break;
+			}
 			if(this.filterBox.containsPoint(flowPoint)){
+				if(isFirst){
+					isFirst = false;
+					this.bottomPlaneIdx = i;
+				}
 				var color = new THREE.Color( 
 					"hsl(360, 100%, "+ 
-					Math.round( 100*Math.pow((this.data[i].concentration/this.bounds.maxC),.4)) +
+					Math.round( 100*Math.pow((this.data[i].concentration/this.bounds.maxC),.3)) +
 					"%)" );
 					containedPoints.push({ x: flowPoint.x, 
 						y: flowPoint.z, 
@@ -107,7 +116,7 @@ class ParticleSystem {
 			} else {
 				var color = new THREE.Color( 
 					"hsl(120, 0%, "+ 
-					Math.round( 100*Math.pow((this.data[i].concentration/this.bounds.maxC),.7)) +
+					Math.round( 100*Math.pow((this.data[i].concentration/this.bounds.maxC),.6)) +
 					"%)" );
 			}
 			this.points.geometry.colors[i] = color;
@@ -119,7 +128,7 @@ class ParticleSystem {
 	}
 	
 	setupSVG(){
-		this.svgWidth = .86*d3.select('.particleDiv').node().clientWidth;
+		this.svgWidth = .85*d3.select('.particleDiv').node().clientWidth;
 		this.svgHeight = this.svgWidth;
 		
 		this.xScale = this.svgWidth/(this.bounds.maxX + 7);
@@ -172,7 +181,7 @@ class ParticleSystem {
 			this.filterPlane.updateMatrixWorld();
 			this.filterBox.setFromObject(this.filterPlane)
 				.expandByVector( new THREE.Vector3(0, .2, 0) );
-			var colors = this.upDateColor();
+			var colors = this.upDateColor((x > 0), this.filterBox.min.y, this.filterBox.max.y);
 			this.drawThings(colors);
 		}else{ 
 			//console.log(this.filterBox.min.y);

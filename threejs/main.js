@@ -24,6 +24,7 @@ var App = App || {};
         // render the scene
         App.scene.render();
 		document.getElementById("display").addEventListener('wheel',function(event){
+			event.preventDefault();
 			if(event.deltaY < 0){
 				particleSystem.slidePlane(.2)
 			}

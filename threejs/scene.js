@@ -10,7 +10,7 @@ var Scene = function(options) {
     var self = this;
 
     // scale the width and height to the screen size
-    var width = d3.select('.particleDiv').node().clientWidth;
+    var width = .99*d3.select('.particleDiv').node().clientWidth;
     var height = width * 0.85;
 	
     // create the scene
