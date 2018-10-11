@@ -26,10 +26,10 @@ var App = App || {};
 		document.getElementById("display").addEventListener('wheel',function(event){
 			event.preventDefault();
 			if(event.deltaY < 0){
-				particleSystem.slidePlane(.2)
+				particleSystem.slidePlane(.1)
 			}
 			else{
-				particleSystem.slidePlane(-.2);
+				particleSystem.slidePlane(-.1);
 			}
 		});
 		//App.scene.scene.updateMatrixWorld();

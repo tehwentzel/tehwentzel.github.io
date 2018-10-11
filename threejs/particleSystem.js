@@ -6,7 +6,7 @@ class ParticleSystem {
 	constructor(file){
 		// scene graph group for the particle system
 		this.sceneObject = new THREE.Group();
-		this.filterWidth = .2;
+		this.filterWidth = .1;
 		this.bottomPlaneIdx = 0;
 		// bounds of the data
 		this.bounds = {};
@@ -58,8 +58,8 @@ class ParticleSystem {
 		var radius = (this.bounds.maxX - this.bounds.minX)/2.0 + 1;
 		var geometry = new THREE.BoxGeometry(2*radius - 1, this.filterWidth, 2*radius - 1);
 		var material = new THREE.MeshBasicMaterial({
-			color: 0xffffff,
-			opacity: .2,
+			color: 0xf0f0f0,
+			opacity: .1,
 			transparent: true});
 		var plane = new THREE.Mesh(geometry, material);
 		plane.name = "filterPlane";
@@ -97,7 +97,7 @@ class ParticleSystem {
 		var start = (up)? this.bottomPlaneIdx : 0;
 		for(var i = 0; i < this.points.geometry.vertices.length; i++){
 			let flowPoint = this.points.geometry.vertices[i];
-			if((up && flowPoint.y > maxy) || (!up && flowPoint.y > maxy + this.filterWidth)){
+			if((up && flowPoint.y > maxy) || (!up && flowPoint.y > maxy + .2)){
 				break;
 			}
 			if(this.filterBox.containsPoint(flowPoint)){
@@ -137,6 +137,13 @@ class ParticleSystem {
 			.attr("width", this.svgWidth)
 			.attr("height", this.svgHeight)
 			.attr("style", "background:rgba(242,242,255,.5)");
+		this.svg.append("text")
+			.attr("x", this.svgWidth/2)
+			.attr("y", this.svgHeight/18)
+			.attr("text-anchor", "middle")
+			.attr("font-size", "1.5em")
+			.attr("font-color", "black")
+			.text("Particles in Intersecting Plane")
 	}
 	
 	drawThings(points){
@@ -154,7 +161,7 @@ class ParticleSystem {
 		nodes.enter().append("circle").merge(nodes)
 			.attr("cx", function(d){return xScale*d.x + xOffset})
 			.attr("cy", function (d) {return yScale*d.y + yOffset})
-			.attr("r", 1.4)
+			.attr("r", 2)
 			.attr("fill", function(d){ return d.color })
 			.attr("fill-opacity", function(d) { 
 			return d.hsl.l
@@ -179,8 +186,8 @@ class ParticleSystem {
 		if( (x > 0 && this.filterBox.max.y < this.yRange) || (x < 0 && this.filterBox.min.y > -this.yRange)){
 			this.filterPlane.geometry.translate(0,x,0);
 			this.filterPlane.updateMatrixWorld();
-			this.filterBox.setFromObject(this.filterPlane)
-				.expandByVector( new THREE.Vector3(0, .2, 0) );
+			this.filterBox.setFromObject(this.filterPlane);
+				//.expandByVector( new THREE.Vector3(0, this.filterWidth, 0) );
 			var colors = this.upDateColor((x > 0), this.filterBox.min.y, this.filterBox.max.y);
 			this.drawThings(colors);
 		}else{ 
