@@ -35,8 +35,10 @@ class ParticleSystem {
 				bounds.maxC = Math.max(bounds.maxC || -Infinity, d.concentration);
             });
 		this.data = particleData;
+		console.log(JSON.stringify(this.data));
 		this.bounds = bounds;
 		this.yRange = (bounds.maxY - bounds.minY)/2;
+		this.zRange = (bounds.maxZ - bounds.minZ)/2;
     };
 
     drawContainment(){
@@ -55,8 +57,8 @@ class ParticleSystem {
     };
 	
 	drawBox(){
-		var radius = (this.bounds.maxX - this.bounds.minX)/2.0 + 1;
-		var geometry = new THREE.BoxGeometry(2*radius - 1, this.filterWidth, 2*radius - 1);
+		var radius = this.zRange + 1;
+		var geometry = new THREE.BoxGeometry( 2*radius, 2*this.yRange, this.filterWidth);
 		var material = new THREE.MeshBasicMaterial({
 			color: 0xf0f0f0,
 			opacity: .1,
@@ -91,13 +93,13 @@ class ParticleSystem {
 
     };
 	
-	upDateColor(up = null, miny = -Infinity, maxy = Infinity){
+	upDateColor(up = null, minZ = -Infinity, maxZ = Infinity){
 		var containedPoints = [];
 		var isFirst = true;
 		var start = (up)? this.bottomPlaneIdx : 0;
 		for(var i = 0; i < this.points.geometry.vertices.length; i++){
 			let flowPoint = this.points.geometry.vertices[i];
-			if((up && flowPoint.y > maxy) || (!up && flowPoint.y > maxy + .2)){
+			if((up && flowPoint.z > maxZ) || (!up && flowPoint.Z > maxZ + .2)){
 				break;
 			}
 			if(this.filterBox.containsPoint(flowPoint)){
@@ -110,7 +112,7 @@ class ParticleSystem {
 					Math.round( 100*Math.pow((this.data[i].concentration/this.bounds.maxC),.3)) +
 					"%)" );
 					containedPoints.push({ x: flowPoint.x, 
-						y: flowPoint.z, 
+						y: flowPoint.y, 
 						color: "#" + color.getHexString(),
 						hsl: color.getHSL() });
 			} else {
@@ -128,11 +130,11 @@ class ParticleSystem {
 	}
 	
 	setupSVG(){
-		this.svgWidth = .85*d3.select('.particleDiv').node().clientWidth;
+		this.svgWidth = .86*d3.select('.particleDiv').node().clientWidth;
 		this.svgHeight = this.svgWidth;
 		
-		this.xScale = this.svgWidth/(this.bounds.maxX + 7);
-		this.yScale = this.svgHeight/(this.bounds.maxX + 7);
+		this.xScale = this.svgWidth/(this.bounds.maxY + 7);
+		this.yScale = this.svgHeight/(this.bounds.maxY + 2);
 		this.svg = d3.select("#lense").append("svg")
 			.attr("width", this.svgWidth)
 			.attr("height", this.svgHeight)
@@ -154,7 +156,7 @@ class ParticleSystem {
 			.data(points, function(d) {return d.x.toString() + d.y.toString();})
 		nodes.exit().remove();
 		var xScale = this.xScale;
-		var yScale = this.yScale;
+		var yScale = -this.yScale;
 		var xOffset = this.svgWidth/2;
 		var yOffset = this.svgHeight/2;
 		
@@ -183,16 +185,16 @@ class ParticleSystem {
 	}
 	
 	slidePlane(x){
-		if( (x > 0 && this.filterBox.max.y < this.yRange) || (x < 0 && this.filterBox.min.y > -this.yRange)){
-			this.filterPlane.geometry.translate(0,x,0);
+		if( (x > 0 && this.filterBox.max.z < this.yRange) || (x < 0 && this.filterBox.min.z > -this.yRange)){
+			this.filterPlane.geometry.translate(0,0,x);
 			this.filterPlane.updateMatrixWorld();
 			this.filterBox.setFromObject(this.filterPlane);
 				//.expandByVector( new THREE.Vector3(0, this.filterWidth, 0) );
-			var colors = this.upDateColor((x > 0), this.filterBox.min.y, this.filterBox.max.y);
+			var colors = this.upDateColor((x > 0), this.filterBox.min.z, this.filterBox.max.z);
 			this.drawThings(colors);
 		}else{ 
 			//console.log(this.filterBox.min.y);
-			console.log(this.filterBox.max.y); 
+			console.log(this.filterBox.max.z); 
 		}
 		//console.log(this.filterBox);
 	}
