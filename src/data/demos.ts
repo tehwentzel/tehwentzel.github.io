@@ -14,7 +14,7 @@ const demos = [
       + ' This is a demo where I had to generate fake data to avoid privacy issue, so the 3d models look a little wonky (the image below is with correct data). The real project was published in IEEE TVCG.'
       + ' This project uses vanilla javascript and d3 + Three.js',
       link: 'https://tehwentzel.github.io/camprt_fakedata_demo/',
-      image: 'camprt.PNG'
+      image: 'camprt.png'
   },
   {
     name: "Fluid Particle Visualization",
