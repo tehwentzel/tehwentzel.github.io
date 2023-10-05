@@ -5,10 +5,10 @@ const experience = [
     location: 'Chicago, Il',
     date: '2019 - Present',
     responsibilities: [
-      'Research assistant researching integrated machine learning and data visualizaton systems',
-      'Improved predictive models for patient outcome prediction using clincal data',
-      'Built interative machine learning systems using python (flask, scipy, pytorch, tensorflow) and javascript + react frontends',
-      'Successfully published in several clincal and computer science journals.'
+      'Research assistant researching integrated machine learning and data visualization systems',
+      'Improved predictive models for patient outcome prediction using clinical data',
+      'Built interactive machine learning systems using python (flask, scipy, pytorch, tensorflow) and javascript + react frontends',
+      'Successfully published in several clinical and computer science journals.'
     ],
   },
   {
@@ -17,7 +17,7 @@ const experience = [
     location: 'Chicago',
     date: '2018',
     responsibilities: [
-      'Did MS research doing simulation modeling for a prototype water collection system using python',
+      'Research doing simulation modeling for a prototype water collection system using python',
       'Worked as a TA for Engineering Analysis 3 (introduction to systems mechanics)',
     ],
   },
