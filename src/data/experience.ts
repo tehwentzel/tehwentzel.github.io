@@ -1,4 +1,11 @@
-const experience = [
+interface ExperienceEntry {
+  employer: string,
+  title: string,
+  location: string,
+  date: string,
+  responsibilities: string[],
+}
+const experience: ExperienceEntry[] = [
   {
     employer: 'University of Illinois Chicago',
     title: 'Research Assistant',

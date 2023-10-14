@@ -10,14 +10,15 @@ import {
   useMediaQuery,
   VStack,
 } from '@chakra-ui/react'
-import info from '../data/info'
+import info from '../data/information'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import { AiFillLinkedin, AiOutlineGithub, MdEmail } from 'react-icons/all'
+import { SiGooglescholar, AiOutlineGithub, MdEmail } from 'react-icons/all'
 import Experience from '../components/Experience'
 import Skills from '../components/Skills'
 import Projects from '../components/Projects'
 import Demos from '../components/Demos';
 import Education from '../components/Education';
+import Publications from '../components/Publications';
 import * as React from 'react'
 import { MdWork} from 'react-icons/all';
 import {FaLaptopCode,FaUserGraduate,FaBook} from 'react-icons/fa';
@@ -28,7 +29,7 @@ export function Main() {
   const blockColor = useColorModeValue('gray.100', 'gray.700')
   const [isScreen] = useMediaQuery('screen')
 
-  function makeIntro(){
+  function makeIntro(): JSX.Element{
     return (<Grid
       id={'header'}
       templateColumns={{base: '1fr', md: '1fr auto'}}
@@ -65,21 +66,25 @@ export function Main() {
           spacing={{base: 0, md: 1}}
           pr={{base: 0, sm: 8, lg: 0}}
         >
-          {info.email && <HStack>
+          {<HStack>
               <MdEmail/>
               <Text>{info.email}</Text>
           </HStack>}
-          {info.github && <HStack>
+          {<HStack>
               <AiOutlineGithub/>
               <Link href={`https://github.com/${info.github}`} isExternal>github.com/{info.github}</Link>
           </HStack>}
+          {<HStack>
+            <SiGooglescholar/>
+              <Link href={info.googleScholar} isExternal>Google Scholar</Link>
+            </HStack>}
         </VStack>
       </GridItem>
     </Grid>
     )
   }
 
-  function makeSummary(){
+  function makeSummary(): JSX.Element{
     return (
       <Text whiteSpace={'pre-wrap'}>
         {info.summary}
@@ -87,14 +92,14 @@ export function Main() {
     )
   }
 
-  function makeExperience(){
+  function makeExperience(): JSX.Element{
     return (
       <Grid
         id={'experience'}
-        templateColumns={{base: '1fr', md: '1fr auto'}}
+        templateColumns='1fr 12em'
         gap={6}
         mt={4}
-        style={{'height':'65vh','minHeight': '680px','maxHeight': '1000px'}}
+        style={{'height':'50vh','minHeight': '600px','maxHeight': '900px'}}
       >
         <GridItem>
           <VStack
@@ -107,7 +112,6 @@ export function Main() {
         <GridItem
           style={{'overflowY':'scroll','height':'100%'}}
           id={'skills'}
-          order={{base: -1, md: 1}}
         >
           <Skills/>
         </GridItem>
@@ -115,19 +119,19 @@ export function Main() {
     )
   }
 
-  function makeProjects(){
+  function makeProjects(): JSX.Element {
     return (<VStack>
       <Projects/>
     </VStack>)
   }
 
-  function makeDemos(){
+  function makeDemos(): JSX.Element{
     return (<VStack>
       <Demos/>
     </VStack>)
   }
   return <Box
-    maxW="960px"
+    maxW="90em"
     mx="auto"
     color={textColor}
     p={{base: isScreen ? 3 : 0, lg: '1rem 0'}}
@@ -136,7 +140,18 @@ export function Main() {
       as={'header'}
     >
       {makeIntro()}
-      <VStack
+      
+      <Tabs>
+        <TabList>
+          <Tab><MdWork/> Experience</Tab>
+          <Tab><FaUserGraduate/>Education</Tab>
+          <Tab>Publications</Tab>
+          <Tab><FaBook/>Research</Tab>
+          <Tab><FaLaptopCode/>Example Projects</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+          <VStack
         mt={4}
         lineHeight={1.33}
         p={2}
@@ -145,19 +160,13 @@ export function Main() {
       >
         {makeSummary()}
       </VStack>
-      <Tabs>
-        <TabList>
-          <Tab><MdWork/> Experience</Tab>
-          <Tab><FaUserGraduate/>Education</Tab>
-          <Tab><FaBook/>Research</Tab>
-          <Tab><FaLaptopCode/>Example Projects</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>
           {makeExperience()}
           </TabPanel>
           <TabPanel>
             <Education/>
+          </TabPanel>
+          <TabPanel>
+            <Publications/>
           </TabPanel>
           <TabPanel>
             {makeProjects()}

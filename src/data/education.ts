@@ -1,4 +1,13 @@
-const education = [
+export interface EducationEntry {
+  employer: string,
+  title: string,
+  location: string,
+  date: string,
+  gpa: string,
+  honors: string[],
+}
+
+export const education: EducationEntry[] = [
   {
     employer: 'University of Illinois Chicago',
     title: 'PhD Computer Science',
@@ -32,5 +41,3 @@ const education = [
     honors: ['Walter P. Murphy Fellowship']
   },
 ]
-
-export default education

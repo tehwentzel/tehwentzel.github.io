@@ -1,4 +1,13 @@
-const projects = [
+interface Project {
+  name: string,
+  description: string,
+  technologies: string[],
+  role: string,
+  papers: string[],
+  date: string,
+}
+
+const projects: Project[] = [
   {
     name: 'Radiation Therapy Plan Prediction + Exploration using Imaging Data',
     description: 'A project that took data extracted from head & neck imaging data for cancer patients using a custom predictive model. Collaborated with a team of data scientists and clincal oncologists.'

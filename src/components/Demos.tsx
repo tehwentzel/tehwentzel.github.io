@@ -1,13 +1,12 @@
 import { Box, Image, VStack, Text, Divider, Grid, GridItem, useColorModeValue, useMediaQuery,Link } from '@chakra-ui/react'
-import demos from '../data/demos'
+import {DemoEntry, demos} from '../data/demos'
 
 export default function Demos() {
   const projectEvenBgColor = useColorModeValue('gray.100', 'gray.700')
   const projectOddBgColor = useColorModeValue('gray.50', 'gray.800')
-  const roleColor = useColorModeValue('gray.600', 'gray.400')
   const [isScreen] = useMediaQuery('screen')
 
-  function makeImage(project: any){
+  function makeImage(project: DemoEntry): JSX.Element{
     if(project.image === undefined){
       return (<></>)
     } else{

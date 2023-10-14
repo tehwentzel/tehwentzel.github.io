@@ -9,12 +9,12 @@ import {
   useMediaQuery,
   VStack
 } from '@chakra-ui/react'
-import education from '../data/education'
+import {EducationEntry, education} from '../data/education'
 
 export default function Experience() {
   const blockColor = useColorModeValue('gray.100', 'gray.700')
 
-  function makeHonors(j: any){
+  function makeHonors(j: EducationEntry): JSX.Element {
     if(j.honors.length < 1){
       return (<></>)
     } else{
