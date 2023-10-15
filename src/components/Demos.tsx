@@ -1,5 +1,5 @@
-import { Box, Image, VStack, Text, Divider, Grid, GridItem, useColorModeValue, useMediaQuery,Link } from '@chakra-ui/react'
-import {DemoEntry, demos} from '../data/demos'
+import { Box, Image, VStack, Text, Divider, Grid, GridItem, useColorModeValue, useMediaQuery,Link,Button } from '@chakra-ui/react'
+import {DemoEntry, demos, DemoLink} from '../data/demos'
 
 export default function Demos() {
   const projectEvenBgColor = useColorModeValue('gray.100', 'gray.700')
@@ -15,6 +15,13 @@ export default function Demos() {
       </Box>)
     }
   }
+
+  function createLinks(project: DemoEntry)  {
+    return (project.links.map( (link: DemoLink) => {
+      return (<Link key={link.title} style={{'color':'navy','fontWeight':'bold'}} href={link.url} target="_blank"><Button variant='outline' colorScheme='blackAlpha'>{link.title}</Button></Link>)
+    }))
+  }
+
   return (
     <>
       <Grid
@@ -24,7 +31,7 @@ export default function Demos() {
         gap={3}
       >
         <GridItem colSpan={2}>
-          {"This is a list of sharable web interfaces I've built and hosted on github, mainly focused on UI/Frontend work that doesn't require a server for the backend."}
+          {"This is a list of papers and projects I've worked on, focusing on frontend and visualization projects."}
         </GridItem>
         {demos.map((project, index) => (
           <GridItem
@@ -55,9 +62,9 @@ export default function Demos() {
               >
                 {project.description}
               </Text>
-              <Link style={{'color':'navy','fontWeight':'bold'}} href={project.link}>{project.link}</Link>
               {makeImage(project)}
             </VStack>
+            {createLinks(project)}
           </GridItem>
         ))}
       </Grid>

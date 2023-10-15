@@ -1,11 +1,11 @@
-interface ExperienceEntry {
+export interface ExperienceEntry {
   employer: string,
   title: string,
   location: string,
   date: string,
   responsibilities: string[],
 }
-const experience: ExperienceEntry[] = [
+export const experience: ExperienceEntry[] = [
   {
     employer: 'University of Illinois Chicago',
     title: 'Research Assistant',
@@ -39,5 +39,3 @@ const experience: ExperienceEntry[] = [
     ],
   },
 ]
-
-export default experience

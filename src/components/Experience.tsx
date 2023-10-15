@@ -10,7 +10,7 @@ import {
   VStack
 } from '@chakra-ui/react'
 import { MdWork } from 'react-icons/all'
-import experience from '../data/experience'
+import {ExperienceEntry, experience} from '../data/experience'
 
 export default function Experience() {
   const blockColor = useColorModeValue('gray.100', 'gray.700')
@@ -21,7 +21,7 @@ export default function Experience() {
         spacing={4}
         w={'100%'}
       >
-        {experience.map((job, index) => (
+        {experience.map((job: ExperienceEntry, index: number) => (
           <VStack
             key={index}
             spacing={1}

@@ -9,6 +9,7 @@ import {
   useColorModeValue,
   useMediaQuery,
   VStack,
+  Image,
 } from '@chakra-ui/react'
 import info from '../data/information'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
@@ -21,7 +22,7 @@ import Education from '../components/Education';
 import Publications from '../components/Publications';
 import * as React from 'react'
 import { MdWork} from 'react-icons/all';
-import {FaLaptopCode,FaUserGraduate,FaBook} from 'react-icons/fa';
+import {FaLaptopCode,FaUserGraduate,FaBook,FaInstagram} from 'react-icons/fa';
 
 export function Main() {
   const textColor = useColorModeValue('gray.700', 'gray.300')
@@ -32,7 +33,7 @@ export function Main() {
   function makeIntro(): JSX.Element{
     return (<Grid
       id={'header'}
-      templateColumns={{base: '1fr', md: '1fr auto'}}
+      templateColumns={{base: '1fr', md: '1fr auto auto'}}
       gap={4}
     >
       <GridItem>
@@ -74,10 +75,20 @@ export function Main() {
               <AiOutlineGithub/>
               <Link href={`https://github.com/${info.github}`} isExternal>github.com/{info.github}</Link>
           </HStack>}
+        </VStack>
+      </GridItem>
+      <GridItem>
+        <VStack
+          alignItems={'start'}
+          fontSize={{base: '1.0rem', md: '1.1rem'}}
+          spacing={{base: 0, md: 1}}
+          pr={{base: 0, sm: 8, lg: 0}}
+        >
           {<HStack>
             <SiGooglescholar/>
               <Link href={info.googleScholar} isExternal>Google Scholar</Link>
             </HStack>}
+            {<HStack><FaInstagram/><Link href={info.instagram} isExternal>Cat Pictures</Link></HStack>}
         </VStack>
       </GridItem>
     </Grid>
@@ -145,7 +156,7 @@ export function Main() {
         <TabList>
           <Tab><MdWork/> Experience</Tab>
           <Tab><FaUserGraduate/>Education</Tab>
-          <Tab>Publications</Tab>
+          <Tab><SiGooglescholar/>Publications</Tab>
           <Tab><FaBook/>Research</Tab>
           <Tab><FaLaptopCode/>Example Projects</Tab>
         </TabList>
@@ -158,7 +169,11 @@ export function Main() {
         bg={blockColor}
         rounded={'md'}
       >
-        {makeSummary()}
+      <Image src={'./banner.PNG'} maxHeight='8em'></Image>
+      <HStack>
+      {makeSummary()}
+      <Image height="7em" src={'./face.PNG'}/>
+      </HStack>
       </VStack>
           {makeExperience()}
           </TabPanel>
