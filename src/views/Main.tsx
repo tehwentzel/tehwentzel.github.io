@@ -10,6 +10,7 @@ import {
   useMediaQuery,
   VStack,
   Image,
+  AbsoluteCenter,
 } from '@chakra-ui/react'
 import info from '../data/information'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
@@ -97,7 +98,7 @@ export function Main() {
 
   function makeSummary(): JSX.Element{
     return (
-      <Text whiteSpace={'pre-wrap'}>
+      <Text fontSize={{base: 12, sm: '1em'}} whiteSpace={'pre-wrap'}>
         {info.summary}
       </Text>
     )
@@ -107,7 +108,8 @@ export function Main() {
     return (
       <Grid
         id={'experience'}
-        templateColumns='1fr 12em'
+        templateColumns={{base: '1fr', sm: '1fr 12em'}}
+        templateRows={{base: '1fr auto', sm: '1fr'}}
         gap={6}
         mt={4}
         style={{'height':'50vh','minHeight': '600px','maxHeight': '900px'}}
@@ -121,7 +123,7 @@ export function Main() {
           </VStack>
         </GridItem>
         <GridItem
-          style={{'overflowY':'scroll','height':'100%'}}
+          style={{'overflowY':'scroll','height': '50vh','minHeight': '600px'}}
           id={'skills'}
         >
           <Skills/>
@@ -130,17 +132,7 @@ export function Main() {
     )
   }
 
-  function makeProjects(): JSX.Element {
-    return (<VStack>
-      <Projects/>
-    </VStack>)
-  }
-
-  function makeDemos(): JSX.Element{
-    return (<VStack>
-      <Demos/>
-    </VStack>)
-  }
+  const tabSizes: object = {base: '.7rem', sm: '1rem'}
   return <Box
     maxW="90em"
     mx="auto"
@@ -153,12 +145,12 @@ export function Main() {
       {makeIntro()}
       
       <Tabs>
-        <TabList>
-          <Tab><MdWork/> Experience</Tab>
-          <Tab><FaUserGraduate/>Education</Tab>
-          <Tab><SiGooglescholar/>Publications</Tab>
-          <Tab><FaBook/>Research</Tab>
-          <Tab><FaLaptopCode/>Example Projects</Tab>
+        <TabList maxWidth='95vw' overflowY='hidden' overflowX={'auto'}>
+          <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><MdWork/>Experience</Tab>
+          <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaUserGraduate/>Education</Tab>
+          <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><SiGooglescholar/>Publications</Tab>
+          <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaLaptopCode/>Projects</Tab>
+          <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaBook/>Research</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -169,11 +161,20 @@ export function Main() {
         bg={blockColor}
         rounded={'md'}
       >
-      <Image src={'./banner.PNG'} maxHeight='8em'></Image>
-      <HStack>
-      {makeSummary()}
-      <Image height="7em" src={'./face.PNG'}/>
-      </HStack>
+        <Grid
+          templateRows={{base:'auto 1fr auto', sm: 'auto 1fr'}}
+          templateColumns={'repeat(3,fr)'}
+        >
+      <GridItem rowSpan={1} colSpan={3} p={{base: .1, sm: 2}}>
+        <Image src={'./banner.PNG'} maxHeight='8em'></Image>
+      </GridItem>
+      <GridItem rowSpan={{base: 1, sm: 2}} colSpan={{base: 3, sm: 2}} p={{base: .1, sm: 2}}>
+        {makeSummary()}
+      </GridItem>
+      <GridItem rowSpan={{base: 1, sm: 2}} colSpan={{base: 3, sm: 1}} p={{base: .1, sm: 2}} display={'flex'} justifyContent={'center'}>
+        <Image display={'inline-flex'} height={{base: '5em', sm: '5em', md: "7em"}} src={'./face.png'}/>
+      </GridItem>
+      </Grid>
       </VStack>
           {makeExperience()}
           </TabPanel>
@@ -184,10 +185,10 @@ export function Main() {
             <Publications/>
           </TabPanel>
           <TabPanel>
-            {makeProjects()}
+          <Demos/>
           </TabPanel>
           <TabPanel>
-            {makeDemos()}
+            <Projects/>
           </TabPanel>
         </TabPanels>
       </Tabs>

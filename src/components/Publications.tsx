@@ -2,12 +2,13 @@ import {
   Box,
   Divider,
   HStack,
-  Flex,
+  Flex, 
   List,ListItem,
   useColorModeValue,
   VStack,
   Center, AbsoluteCenter,
   Card,CardBody,
+  Text,
   Button,Link
 } from '@chakra-ui/react'
 import {PublicationEntry, publications, MiscItem} from '../data/publications'
@@ -21,15 +22,17 @@ const colorScheme: any = {
   'Other': 'grey',
 }
 export default function Publications() {
-  const blockColor = useColorModeValue('gray.100', 'gray.700')
 
-
+  const fontSizes: object = {base: '.8rem', sm: '1rem'}
   function makeButton(link: string | null, text: string): JSX.Element{
     if(link == null){ return (<></>)}
     return (
-      <Link href={link} target="_blank">
+      <Link display={'flex'} href={link} target="_blank" >
       <Button
-          style={{'display':'inline','height':'auto','fontSize':'1em'}}
+          fontSize={fontSizes}
+          mt={{base: 1, sm: 0}}
+          p={{base: 1, sm: 1}}
+          style={{'display':'inline','height':'auto'}}
           variant="outline"
           colorScheme={colorScheme[text]? (colorScheme[text] as string): 'blackAlpha'}
         >{text}
@@ -41,16 +44,19 @@ export default function Publications() {
   function makePublication(entry: PublicationEntry): JSX.Element{
     return (
       <Center width='90%' stroke={colorScheme[entry.paperType]? '2px '+colorScheme[entry.paperType]: '2px blue'}>
-      <Box display='inline-flex' maxWidth='60vw' width='100%' mt="2" padding="2" borderColor='black' style={{'border':'1px solid','borderColor': colorScheme[entry.paperType]? colorScheme[entry.paperType]: 'blue'}} rounded={'md'} py={2} px={2}>
-      <VStack>
-        <div>
-          <p style={{'display':'inline-block'}}>{entry.authorList.map((d: string): JSX.Element => d.includes('Wentzel')? (<strong>{d + ', '}</strong>): (<>{d + ', '}</>))}
-          <em>{' ' + entry.title + '. '}</em>
+      <Box 
+        display='inline-flex' 
+        maxWidth='70vw' width='100%' mt="2" padding="2" 
+        borderColor='black' style={{'border':'1px solid','borderColor': colorScheme[entry.paperType]? colorScheme[entry.paperType]: 'blue'}} 
+        rounded={'md'} p={{base: 1, sm: 2, md: 3}}
+      >
+      <VStack >
+          <Text fontSize={fontSizes} width={'100%'} align={'start'} display='inline-block'>{entry.authorList.map((d: string): JSX.Element => d.includes('Wentzel')? (<strong>{d + ', '}</strong>): (<>{d + ', '}</>))}
+          <em>{'  ' + entry.title + '. '}</em>
           {entry.journal + ', ' + entry.date + '.'}
-          </p>
-        </div>
+          </Text>
         <Divider/>
-        <HStack>
+        <HStack width='100%' display={'flex'} flexWrap="wrap"  justifyContent={'start'} flexDirection={'row'} >
         {makeButton(entry.doi,'Paper')}
         {makeButton(entry.archivX,'Open Access')}
         {makeButton(entry.github,'Github')}
