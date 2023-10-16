@@ -18,6 +18,19 @@ export interface PublicationEntry {
 
 export const publications: PublicationEntry[] = [
   {
+    title: "Multi-organ spatial stratification of 3-D dose distributions improves risk prediction of long-term self-reported severe symptoms in oropharyngeal cancer patients receiving radiotherapy: development of a pre-treatment decision support tool",
+    authorList: ["Andrew Wentzel","Abdallah SR Mohamed","et. al"],
+    doi: "https://doi.org/10.3389/fonc.2023.1210087",
+    date: 2023,
+    journal: "Frontiers in Oncology",
+    isFirstAuthor: true,
+    archivX: null,
+    supplement: 'https://figshare.com/s/323b80aac562a0c910b3',
+    github: null,
+    paperType: "Clinical",
+    misc: null,
+  },
+  {
     title: "Spatially-aware clustering improves AJCC-8 risk stratification performance in oropharyngeal carcinomas",
     authorList: ['Guadalupe Canahuate', "Andrew Wentzel","Abdallah SR Mohamed","Lisanne V van Dikj", "David M Vock","Baher Elgorhari", "Hesham Elhalawani","Clifton D Fuller","G.E Marai"],
     doi: "https://doi.org/10.1016/j.oraloncology.2023.106460",
@@ -111,20 +124,7 @@ export const publications: PublicationEntry[] = [
   {
     title: "Roses Have Thorns: Understanding the Downside of Oncological Care Delivery Through Visual Analytics and Sequential Rule Mining",
     authorList: ['Carla Floricel','Andrew Wentzel','et. al'],
-    doi: 'In Press',
-    date: 2023,
-    journal: "TVCG",
-    supplement: null,
-    github: null,
-    archivX: 'https://doi.org/10.48550/arXiv.2308.07895',
-    paperType: "Vis",
-    isFirstAuthor: false,
-    misc: null,
-  },
-  {
-    title: "Roses Have Thorns: Understanding the Downside of Oncological Care Delivery Through Visual Analytics and Sequential Rule Mining",
-    authorList: ['Carla Floricel','Andrew Wentzel','et. al'],
-    doi: 'In Press',
+    doi: 'https://ieeevis.org/year/2023/info/papers-sessions',
     date: 2023,
     journal: "TVCG",
     supplement: null,

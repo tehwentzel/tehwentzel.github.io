@@ -30,6 +30,7 @@ export default function Experience() {
       <VStack
         spacing={4}
         w={'100%'}
+        fontSize={['.8rem','1rem']}
       >
         {education.map((job, index) => (
           <VStack

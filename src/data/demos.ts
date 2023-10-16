@@ -18,16 +18,16 @@ export const demos: DemoEntry[] = [
   },
   {
     name: '(Published Interface) MOTIV ',
-    description: 'This is an interface designed to explore a cohort of head and neck cancer patients with an accompanied custom k-nearest-neighbors algorithm to predict their radiation dose using anatomical information.'
-      + ' This is a demo where I had to generate fake data to avoid privacy issue, so the 3d models look a little wonky (the image below is with correct data). The real project was published in IEEE TVCG.',
+    description: 'This is an interface for exploring geotagged twitter data for tweets annotated with moral frames and stance regarding controversial topics, which was applied COVID-19 lockdown order and early BLM protests. It focused on helping Social Scientists identify possible trends and integrates several additional datasets along with Interactive Generalized Additive Models to analyze how morality and stance intersect with regional demographics.',
       image: 'motiv.PNG',
       links: [{title: 'Video',url: 'https://youtu.be/dlee1FBaNd4'}],
   },
   {
     name: '(Published Interface) Cohort Visualization of Radiation Therapy Data',
-    description: 'This is an interface for exploring geotagged twitter data for tweets annotated with moral frames and stance regarding controversial topics, which was applied COVID-19 lockdown order and early BLM protests. It focused on helping Social Scientists identify possible trends and integrates several additional datasets along with Interactive Generalized Additive Models to analyze how morality and stance intersect with regional demographics.',
-      image: 'camprt.PNG',
-      links: [{title: 'Video',url: 'https://youtu.be/oGUtdK5tL10'},{title:'Demo (randomized data)', url:'https://tehwentzel.github.io/camprt_fakedata_demo/'}],
+    description: 'This is an interface designed to explore a cohort of head and neck cancer patients with an accompanied custom k-nearest-neighbors algorithm to predict their radiation dose using anatomical information.'
+      + ' This interface was published in TVCG and presented at the IEEE Vis Conference in 2019. There is also a demo with a version of the interface including additional edits to help support other clinical studies based on the initial findings, such as with updated clustering and marking patients with toxicities in the scatterplot as diamonds. The demo uses randomized data to preserve data privacy at the cost of lossing accurate anatomy (due to privacy issues).',    
+    image: 'camprt.PNG',
+    links: [{title: 'Video',url: 'https://youtu.be/oGUtdK5tL10'},{title:'Demo (randomized data)', url:'https://tehwentzel.github.io/camprt_fakedata_demo/'}],
   },
   {
     name: '(Visualization) COVID-19 Demographics Map',

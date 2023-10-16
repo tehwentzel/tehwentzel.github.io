@@ -44,7 +44,7 @@ export function Main() {
           h={'100%'}
         >
           <Text
-            fontSize={'1.5rem'}
+            fontSize={['1rem','1.5rem']}
             textTransform={'uppercase'}
             fontWeight={'bold'}
           >
@@ -53,6 +53,7 @@ export function Main() {
           <Text
             color={titleColor}
             mt={0}
+            fontSize={['.9rem','1.2rem']}
             lineHeight={1.33}
           >
             {info.title}
@@ -64,9 +65,10 @@ export function Main() {
       <GridItem>
         <VStack
           alignItems={'start'}
-          fontSize={{base: '1.0rem', md: '1.1rem'}}
+          fontSize={['.7rem','1.1rem']}
           spacing={{base: 0, md: 1}}
           pr={{base: 0, sm: 8, lg: 0}}
+          mb={0}
         >
           {<HStack>
               <MdEmail/>
@@ -81,9 +83,11 @@ export function Main() {
       <GridItem>
         <VStack
           alignItems={'start'}
-          fontSize={{base: '1.0rem', md: '1.1rem'}}
+          fontSize={['.7rem','1.1rem']}
           spacing={{base: 0, md: 1}}
           pr={{base: 0, sm: 8, lg: 0}}
+          mb={[3,0]}
+          mt={[-2,0]}
         >
           {<HStack>
             <SiGooglescholar/>
@@ -98,7 +102,7 @@ export function Main() {
 
   function makeSummary(): JSX.Element{
     return (
-      <Text fontSize={{base: 12, sm: '1em'}} whiteSpace={'pre-wrap'}>
+      <Text fontSize={{base: '.8rem', sm: '1em'}} whiteSpace={'pre-wrap'}>
         {info.summary}
       </Text>
     )
