@@ -5,7 +5,7 @@ export interface MiscItem{
 export interface PublicationEntry {
   title: string,
   authorList: string[],
-  doi: string,
+  doi: string | null,
   date: number,
   journal: string,
   isFirstAuthor: Boolean,
@@ -14,9 +14,24 @@ export interface PublicationEntry {
   paperType: "Vis" | "Clinical" | "Other",
   github: string | null,
   misc: MiscItem[] | null,
+  pdf: string | null,
 }
 
 export const publications: PublicationEntry[] = [
+  // {
+  //   title: 'MOTIV: Visual Exploration of Moral Framing in Social Media',
+  //   authorList: ["Andrew Wentzel",'Lauren Levine','Vipu Dhariwal','Zarah Fatemi',"Abara Bhattacharya",'Barbara Di Eugenio','Andrew Rojecki',"Elena Zheleva",'G.Elisabeta Marai'],
+  //   doi: null,
+  //   journal: "Computer Graphics Forum (In Press)",
+  //   isFirstAuthor: true,
+  //   archivX: null,
+  //   supplement: 'https://osf.io/ygkzn/?view_only=6310c0886938415391d977b8aae8b749',
+  //   github: null,
+  //   paperType: 'Vis',
+  //   date: 2024,
+  //   misc: null,
+  //   pdf: 'SAH_CGF_Revision.pdf',
+  // },
   {
     title: "Multi-organ spatial stratification of 3-D dose distributions improves risk prediction of long-term self-reported severe symptoms in oropharyngeal cancer patients receiving radiotherapy: development of a pre-treatment decision support tool",
     authorList: ["Andrew Wentzel","Abdallah SR Mohamed","et. al"],
@@ -29,6 +44,7 @@ export const publications: PublicationEntry[] = [
     github: null,
     paperType: "Clinical",
     misc: null,
+    pdf: 'Dose_Cluster_Clinical.pdf',
   },
   {
     title: "Spatially-aware clustering improves AJCC-8 risk stratification performance in oropharyngeal carcinomas",
@@ -42,6 +58,7 @@ export const publications: PublicationEntry[] = [
     github: null,
     paperType: "Clinical",
     misc: null,
+    pdf: 'Hypo_testing.pdf',
   },
   {
     title: "DASS Good: Explainable Data Mining of Spatial Cohort Data",
@@ -55,6 +72,7 @@ export const publications: PublicationEntry[] = [
     github: 'https://github.com/tehwentzel/QubbedDataAnalysis',
     paperType: 'Vis',
     misc: [{title: "Full Paper Talk", content: "https://youtu.be/r39-4gYAw5c"}],
+    pdf: 'DASS.pdf',
   },
   {
     title: "Cohort-based T-SSIM visual computing for radiation therapy prediction and exploration",
@@ -68,6 +86,7 @@ export const publications: PublicationEntry[] = [
     github: 'https://github.com/uic-evl/CAMP-RT',
     paperType: 'Vis',
     misc: null,
+    pdf: 'CAMPRT.pdf',
   },
   {
     title: "A Lens to Stay at Home Pandemic Attitudes",
@@ -81,6 +100,7 @@ export const publications: PublicationEntry[] = [
     paperType: "Vis",
     isFirstAuthor: true,
     misc: null,
+    pdf: 'SAH_Workshop.pdf',
   },
   {
     title: "Explainable Spatial Clustering: Leveraging Spatial Data in Radiation Oncology",
@@ -94,6 +114,7 @@ export const publications: PublicationEntry[] = [
     paperType: "Vis",
     isFirstAuthor: true,
     misc: null,
+    pdf: 'LN_Cluster_Short_Paper.pdf',
   },
   {
     title: "Precision toxicity correlates of tumor spatial proximity to organs at risk in cancer patients receiving intensity-modulated radiotherapy",
@@ -107,6 +128,7 @@ export const publications: PublicationEntry[] = [
     paperType: "Clinical",
     isFirstAuthor: true,
     misc: null,
+    pdf: null,
   },
   {
     title: "Precision association of lymphatic disease spread with radiation-associated toxicity in oropharyngeal squamous carcinomas",
@@ -120,11 +142,12 @@ export const publications: PublicationEntry[] = [
     paperType: "Clinical",
     isFirstAuthor: true,
     misc: null,
+    pdf: null,
   },
   {
     title: "Roses Have Thorns: Understanding the Downside of Oncological Care Delivery Through Visual Analytics and Sequential Rule Mining",
     authorList: ['Carla Floricel','Andrew Wentzel','et. al'],
-    doi: 'https://ieeevis.org/year/2023/info/papers-sessions',
+    doi: 'hhttps://doi.org/10.1109/TVCG.2023.3326939',
     date: 2023,
     journal: "TVCG",
     supplement: null,
@@ -133,6 +156,7 @@ export const publications: PublicationEntry[] = [
     paperType: "Vis",
     isFirstAuthor: false,
     misc: null,
+    pdf: null,
   },
   {
     title: "Understanding Stay-at-home Attitudes through Framing Analysis of Tweets",
@@ -146,6 +170,7 @@ export const publications: PublicationEntry[] = [
     paperType: "Other",
     isFirstAuthor: false,
     misc: null,
+    pdf: null,
   },
   {
     title: "Optimal Treatment Selection in Sequential Systemic and Locoregional Therapy of Oropharyngeal Squamous Carcinomas: Deep Q-Learning With a Patient-Physician Digital Twin Dyad",
@@ -159,6 +184,7 @@ export const publications: PublicationEntry[] = [
     paperType: "Clinical",
     isFirstAuthor: false,
     misc: null,
+    pdf: null,
   },
   {
     title: "A spatial neighborhood methodology for computing and analyzing lymph node carcinoma similarity in precision medicine",
@@ -172,5 +198,6 @@ export const publications: PublicationEntry[] = [
     paperType: "Other",
     isFirstAuthor: false,
     misc: null,
+    pdf: null
   },
 ]

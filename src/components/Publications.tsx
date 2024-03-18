@@ -61,6 +61,7 @@ export default function Publications() {
         {makeButton(entry.archivX,'Open Access')}
         {makeButton(entry.github,'Github')}
         {makeButton(entry.supplement,'Supplement')}
+        {makeButton(entry.pdf,'PDF')}
         {entry.misc?.map( (d: MiscItem) => makeButton(d.content,d.title))}
         </HStack>
        </VStack>
