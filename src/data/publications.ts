@@ -18,20 +18,20 @@ export interface PublicationEntry {
 }
 
 export const publications: PublicationEntry[] = [
-  // {
-  //   title: 'MOTIV: Visual Exploration of Moral Framing in Social Media',
-  //   authorList: ["Andrew Wentzel",'Lauren Levine','Vipu Dhariwal','Zarah Fatemi',"Abara Bhattacharya",'Barbara Di Eugenio','Andrew Rojecki',"Elena Zheleva",'G.Elisabeta Marai'],
-  //   doi: null,
-  //   journal: "Computer Graphics Forum (In Press)",
-  //   isFirstAuthor: true,
-  //   archivX: null,
-  //   supplement: 'https://osf.io/ygkzn/?view_only=6310c0886938415391d977b8aae8b749',
-  //   github: null,
-  //   paperType: 'Vis',
-  //   date: 2024,
-  //   misc: null,
-  //   pdf: 'SAH_CGF_Revision.pdf',
-  // },
+  {
+    title: 'MOTIV: Visual Exploration of Moral Framing in Social Media',
+    authorList: ["Andrew Wentzel",'Lauren Levine','Vipu Dhariwal','Zarah Fatemi',"Abara Bhattacharya",'Barbara Di Eugenio','Andrew Rojecki',"Elena Zheleva",'G.Elisabeta Marai'],
+    doi: 'https://doi.org/10.1111/cgf.15072',
+    journal: "Computer Graphics Forum",
+    isFirstAuthor: true,
+    archivX: 'https://doi.org/10.48550/arXiv.2403.14696',
+    supplement: 'https://osf.io/ygkzn/?view_only=6310c0886938415391d977b8aae8b749',
+    github: null,
+    paperType: 'Vis',
+    date: 2024,
+    misc: null,
+    pdf: 'SAH_CGF_Revision.pdf',
+  },
   {
     title: "Multi-organ spatial stratification of 3-D dose distributions improves risk prediction of long-term self-reported severe symptoms in oropharyngeal cancer patients receiving radiotherapy: development of a pre-treatment decision support tool",
     authorList: ["Andrew Wentzel","Abdallah SR Mohamed","et. al"],
@@ -91,7 +91,7 @@ export const publications: PublicationEntry[] = [
   {
     title: "A Lens to Stay at Home Pandemic Attitudes",
     authorList: ['Andrew Wentzel','Lauren Levine','et. al'],
-    doi: 'NA (In Review for full paper)',
+    doi: null,
     date: 2023,
     journal: "IEEE Workshop on Visualization for Pandemic and Emergence Response",
     supplement: 'https://figshare.com/articles/media/MOTIV_TVCG_Supplement/21803886',
