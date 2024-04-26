@@ -11,6 +11,12 @@ export interface DemoEntry {
 }
 export const demos: DemoEntry[] = [
   {
+    name: '(In progress publication) DITTO: Digital Twin for Head and Neck Cancer Treatment Planning',
+    description: 'This is part of an in-progess work using a publically available cohort to build an AI system that can simulate the treatment course of a head and neck cancer patient using custom explainable deep learning models. The interface then presents patient outcomes and recommended treatments along with outcomes from similar patients as a way to help clinicians decide on treatment plans. The current system is in progress but the prototype can be viewed using the login and username guest and guest',
+    image: 'ditto.png',
+    links: [{title: 'Demo',url: 'https://digitaltwin.evl.uic.edu'}]
+  },
+  {
     name: '(Published Interface) DASS Good: Explainable Data Mining of Spatial Cohort Data',
     description: 'We describe the co-design of a modeling system, DASS, to support the hybrid human-machine development and validation of predictive models for estimating long-term toxicities related to radiotherapy doses in head and neck cancer patients. Developed in collaboration with domain experts in oncology and data mining, DASS incorporates human-in-the-loop visual steering, spatial data, and explainable AI to augment domain knowledge with automatic data mining.',
     image: 'dass.PNG',
@@ -20,7 +26,7 @@ export const demos: DemoEntry[] = [
     name: '(Published Interface) MOTIV ',
     description: 'This is an interface for exploring geotagged twitter data for tweets annotated with moral frames and stance regarding controversial topics, which was applied COVID-19 lockdown order and early BLM protests. It focused on helping Social Scientists identify possible trends and integrates several additional datasets along with Interactive Generalized Additive Models to analyze how morality and stance intersect with regional demographics.',
       image: 'motiv.PNG',
-      links: [{title: 'Video',url: 'https://youtu.be/dlee1FBaNd4'}],
+      links: [{title: 'Video',url: 'https://youtu.be/dlee1FBaNd4'},{title: 'Demo', url:'https://stayathome.evl.uic.edu'}],
   },
   {
     name: '(Published Interface) Cohort Visualization of Radiation Therapy Data',

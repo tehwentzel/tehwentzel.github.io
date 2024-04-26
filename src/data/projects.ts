@@ -52,6 +52,7 @@ const projects: Project[] = [
     technologies: ['Javascript','React','Flask','Python','D3.js','Git'],
     role: 'Designer, Data Engineering, Statistical Analysis, Developer, Paper Lead Author, Presenter, Co Author',
     papers: [
+      'A. Wentzel et al., MOTIV: Visual Exploration of Moral Framing in Social Media. Computer Graphics Forum, 2024. doi: https://doi.org/10.1111/cgf.15072',
       'A. Wentzel et al. "A Lens to Stay at Home Attidues", at the IEEE 2023 Vis4PandEmRes Visualization Conference Workshop, Oct 2023. doi: https://arxiv.org/abs/2308.13552',
     ],
     date: '2020-Present (WIP)',
