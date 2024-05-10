@@ -40,7 +40,7 @@ export default function Demos() {
         gap={3}
       >
         <GridItem colSpan={{base: 1, sm: 2}}>
-          {"This is a list of papers and projects I've worked on, focusing on frontend and visualization projects."}
+          {/* {"This is a list of papers and projects I've worked on, focusing on frontend and visualization projects."} */}
         </GridItem>
         {demos.map((project, index) => (
           <GridItem

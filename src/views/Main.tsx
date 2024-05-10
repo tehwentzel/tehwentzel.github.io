@@ -136,6 +136,31 @@ export function Main() {
     )
   }
 
+  function makeTopSummary(): JSX.Element{
+    return (<VStack
+          mt={4}
+          lineHeight={1.33}
+          p={2}
+          bg={blockColor}
+          rounded={'md'}
+        >
+          <Grid
+            templateRows={{base:'auto 1fr auto', sm: 'auto 1fr'}}
+            templateColumns={'repeat(3,fr)'}
+          >
+        <GridItem rowSpan={1} colSpan={3} p={{base: .1, sm: 2}}>
+          <Image src={'./banner.PNG'} maxHeight='8em'></Image>
+        </GridItem>
+        <GridItem rowSpan={{base: 1, sm: 2}} colSpan={{base: 3, sm: 2}} p={{base: .1, sm: 2}}>
+          {makeSummary()}
+        </GridItem>
+        <GridItem rowSpan={{base: 1, sm: 2}} colSpan={{base: 3, sm: 1}} p={{base: .1, sm: 2}} display={'flex'} justifyContent={'center'}>
+          <Image display={'inline-flex'} height={{base: '5em', sm: '5em', md: "7em"}} src={'./face.png'}/>
+        </GridItem>
+        </Grid>
+      </VStack>)
+  }
+
   const tabSizes: object = {base: '.7rem', sm: '1rem'}
   return <Box
     maxW="90em"
@@ -150,46 +175,25 @@ export function Main() {
       
       <Tabs>
         <TabList maxWidth='95vw' overflowY='hidden' overflowX={'auto'}>
+          <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaLaptopCode/>Projects</Tab>
           <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><MdWork/>Experience</Tab>
           <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaUserGraduate/>Education</Tab>
           <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><SiGooglescholar/>Publications</Tab>
-          <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaLaptopCode/>Projects</Tab>
           <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaBook/>Research</Tab>
         </TabList>
         <TabPanels>
+            <TabPanel>
+              {makeTopSummary()}
+              <Demos/>
+            </TabPanel>
           <TabPanel>
-          <VStack
-        mt={4}
-        lineHeight={1.33}
-        p={2}
-        bg={blockColor}
-        rounded={'md'}
-      >
-        <Grid
-          templateRows={{base:'auto 1fr auto', sm: 'auto 1fr'}}
-          templateColumns={'repeat(3,fr)'}
-        >
-      <GridItem rowSpan={1} colSpan={3} p={{base: .1, sm: 2}}>
-        <Image src={'./banner.PNG'} maxHeight='8em'></Image>
-      </GridItem>
-      <GridItem rowSpan={{base: 1, sm: 2}} colSpan={{base: 3, sm: 2}} p={{base: .1, sm: 2}}>
-        {makeSummary()}
-      </GridItem>
-      <GridItem rowSpan={{base: 1, sm: 2}} colSpan={{base: 3, sm: 1}} p={{base: .1, sm: 2}} display={'flex'} justifyContent={'center'}>
-        <Image display={'inline-flex'} height={{base: '5em', sm: '5em', md: "7em"}} src={'./face.png'}/>
-      </GridItem>
-      </Grid>
-      </VStack>
-          {makeExperience()}
+            {makeExperience()}
           </TabPanel>
           <TabPanel>
             <Education/>
           </TabPanel>
           <TabPanel>
             <Publications/>
-          </TabPanel>
-          <TabPanel>
-          <Demos/>
           </TabPanel>
           <TabPanel>
             <Projects/>
