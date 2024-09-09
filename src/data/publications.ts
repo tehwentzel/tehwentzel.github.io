@@ -19,6 +19,20 @@ export interface PublicationEntry {
 
 export const publications: PublicationEntry[] = [
   {
+    title:"DITTO: A Visual Digital Twin for Interventions and Temporal Treatment Outcomes in Head and Neck Cancer",
+    authorList: ['Andrew Wentzel','Serageldin Attia','Xinhua Zhang','Guadalupe Canahuate','Clifton David Fuller','G.Elisabeta Marai'],
+    doi: 'https://doi.org/10.1109/TVCG.2024.3456160',
+    journal: 'Accepted to Vis 2024 (TVCG-In press)',
+    isFirstAuthor:true,
+    archivX: 'https://doi.org/10.48550/arXiv.2407.13107',
+    github: 'https://github.com/uic-evl/DigitalTwinVis',
+    supplement: null,
+    paperType: 'Vis',
+    date: 2024,
+    misc: null,
+    pdf: null,
+  },
+  {
     title: 'Kiviat Defense: An Empirical Evaluation of Visual Encoding Effectiveness in Multivariate Data Similarity Detection',
     authorList: ["Mirko Mantovani", "Andrew Wentzel",'Juan Trelles Trabucco','Joseph Michaelis','G.Elisabeta Marai'],
     doi: 'https://doi.org/10.2352/J.ImagingSci.Technol.2023.67.6.060406',

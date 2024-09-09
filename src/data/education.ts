@@ -12,9 +12,9 @@ export const education: EducationEntry[] = [
     employer: 'University of Illinois Chicago',
     title: 'PhD Computer Science',
     location: 'Chicago, Il',
-    date: '2019-Present',
+    date: '2019-December 2024 (expected)',
     gpa: '4',
-    honors: [],
+    honors: ['UIC College of Engineering Exceptional Research Promise Award'],
   },
   {
     employer: 'University of Illinois Chicago',
