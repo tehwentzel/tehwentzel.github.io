@@ -19,10 +19,24 @@ export interface PublicationEntry {
 
 export const publications: PublicationEntry[] = [
   {
+    title:"BI-LAVA: Biocuration With Hierarchical Image Labelling Through Active Learning and Visual Analytics",
+    authorList: ['Juan Trelles','Andrew Wentzel','Wiliam Berrios','Hagit Shatkay','G.Elisabeta Marai'],
+    doi: 'https://doi.org/10.1111/cgf.15261',
+    journal: 'Computer Graphics Forum',
+    isFirstAuthor:false,
+    archivX: 'https://doi.org/10.48550/arXiv.2308.08003',
+    github: null,
+    supplement: null,
+    paperType: 'Vis',
+    date: 2024,
+    misc: null,
+    pdf: null,
+  },
+  {
     title:"DITTO: A Visual Digital Twin for Interventions and Temporal Treatment Outcomes in Head and Neck Cancer",
     authorList: ['Andrew Wentzel','Serageldin Attia','Xinhua Zhang','Guadalupe Canahuate','Clifton David Fuller','G.Elisabeta Marai'],
     doi: 'https://doi.org/10.1109/TVCG.2024.3456160',
-    journal: 'Accepted to Vis 2024 (TVCG-In press)',
+    journal: 'TVCG',
     isFirstAuthor:true,
     archivX: 'https://doi.org/10.48550/arXiv.2407.13107',
     github: 'https://github.com/uic-evl/DigitalTwinVis',
