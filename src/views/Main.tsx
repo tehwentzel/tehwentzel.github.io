@@ -103,7 +103,7 @@ export function Main() {
   function makeSummary(): JSX.Element{
     return (
       <Text fontSize={{base: '.8rem', sm: '1em'}} whiteSpace={'pre-wrap'}>
-        {info.summary}
+        {"I'm an ABD PhD student in computer science at UIC. My main interests are in human-centered machine learning, focusing on connecting ML and Vis to improve the usefulness and explanability of models."}
       </Text>
     )
   }
@@ -155,7 +155,7 @@ export function Main() {
           {makeSummary()}
         </GridItem>
         <GridItem rowSpan={{base: 1, sm: 2}} colSpan={{base: 3, sm: 1}} p={{base: .1, sm: 2}} display={'flex'} justifyContent={'center'}>
-          <Image display={'inline-flex'} height={{base: '5em', sm: '5em', md: "7em"}} src={'./face.png'}/>
+          <Image display={'inline-flex'} height={{base: '5em', sm: '5em', md: "7em"}} src={'./zoomphotonew9.png'}/>
         </GridItem>
         </Grid>
       </VStack>)
@@ -179,7 +179,7 @@ export function Main() {
           <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><MdWork/>Experience</Tab>
           <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaUserGraduate/>Education</Tab>
           <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><SiGooglescholar/>Publications</Tab>
-          <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaBook/>Research</Tab>
+          {/* <Tab  p={{base: 1,sm: 2, md: 3}} fontSize={tabSizes}><FaBook/>Research</Tab> */}
         </TabList>
         <TabPanels>
             <TabPanel>
@@ -195,9 +195,9 @@ export function Main() {
           <TabPanel>
             <Publications/>
           </TabPanel>
-          <TabPanel>
+          {/* <TabPanel>
             <Projects/>
-          </TabPanel>
+          </TabPanel> */}
         </TabPanels>
       </Tabs>
     </Box>

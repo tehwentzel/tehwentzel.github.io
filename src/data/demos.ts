@@ -17,8 +17,8 @@ export const demos: DemoEntry[] = [
     links: [{title:'Demo', url: 'https://uic-evl.github.io/OsteoradionecrosisVis/'}],
   },
   {
-    name: '(In progress publication) DITTO: Digital Twin for Head and Neck Cancer Treatment Planning',
-    description: 'This is part of an in-progess work using a publically available cohort to build an AI system that can simulate the treatment course of a head and neck cancer patient using custom explainable deep learning models. The interface then presents patient outcomes and recommended treatments along with outcomes from similar patients as a way to help clinicians decide on treatment plans. The current system is in progress but the prototype can be viewed using the login and username guest and guest',
+    name: '(Published Interface) DITTO: Digital Twin for Head and Neck Cancer Treatment Planning',
+    description: 'This is an AI system that can simulate the treatment course of a head and neck cancer patient using custom explainable deep learning models. The interface then presents patient outcomes and recommended treatments along with outcomes from similar patients as a way to help clinicians decide on treatment plans. The current system is in progress but the prototype can be viewed using the login and username guest and guest',
     image: 'ditto.PNG',
     links: [{title: 'Demo',url: 'https://digitaltwin.evl.uic.edu'}]
   },
