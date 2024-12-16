@@ -7,10 +7,19 @@ export interface ExperienceEntry {
 }
 export const experience: ExperienceEntry[] = [
   {
+    employer: 'Epsilon',
+    title: 'PhD Data Scientist, Decision Sciences and Visual Analytics Team',
+    location: 'Chicago, Il',
+    date: 'January 2025 - ',
+    responsibilities: [
+      
+    ],
+  },
+  {
     employer: 'University of Illinois Chicago',
     title: 'Research Assistant',
     location: 'Chicago, Il',
-    date: '2019 - Present',
+    date: '2019 - December 2024',
     responsibilities: [
       'Designed spatial machine learning and data visualization tools for domain experts and clinicians.',
       'Created explainable deep learning models for interactive digital twins of cancer patients using pytorch.',

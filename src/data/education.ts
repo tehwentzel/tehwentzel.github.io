@@ -12,7 +12,7 @@ export const education: EducationEntry[] = [
     employer: 'University of Illinois Chicago',
     title: 'PhD Computer Science',
     location: 'Chicago, Il',
-    date: '2019-December 2024 (expected)',
+    date: '2020-2024',
     gpa: '4',
     honors: ['UIC College of Engineering Exceptional Research Promise Award'],
   },
@@ -32,12 +32,12 @@ export const education: EducationEntry[] = [
     gpa: '3.73',
     honors: ['Summa Cum Laude','Full Tuition Scholarship']
   },
-  {
-    employer: 'Northwestern University',
-    title: 'Partial MS Mechanical Engineering (transferred)',
-    location: 'Evanston, Il',
-    date: '2017-2018',
-    gpa: '3.74',
-    honors: ['Walter P. Murphy Fellowship']
-  },
+  // {
+  //   employer: 'Northwestern University',
+  //   title: 'Partial MS Mechanical Engineering (transferred)',
+  //   location: 'Evanston, Il',
+  //   date: '2017-2018',
+  //   gpa: '3.74',
+  //   honors: ['Walter P. Murphy Fellowship']
+  // },
 ]
